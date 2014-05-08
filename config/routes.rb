@@ -2,6 +2,7 @@ Fels3::Application.routes.draw do
   resources :users do
     resources :lessons, only: [:new, :show, :index]
   end
+
   resources :words
   resources :sessions, only: [:new, :create, :destroy]
 
