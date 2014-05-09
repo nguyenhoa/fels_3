@@ -1,10 +1,11 @@
 <% provide(:title, 'List Words') %>
 <h1>List Words</h1>
+
 <div id="search">
   <%= render :partial => 'words/search' %>
 </div>
-  <ul class="words">
-    <% @words.each do |word| %>
-      <%= render word %>
-    <% end %>
-  </ul>
+<ul class="words">
+  <% @words.each do |word| %>
+  <%= render word %>
+  <% end %>
+</ul>
