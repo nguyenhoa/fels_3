@@ -8,12 +8,21 @@
 
     <div class="span8">
       <div class="row">
-        <aside class="span4">
-          <%= button_to "Words", '#', :method => :get, class: "btn btn-large btn-primary" %>     
-        </aside>
-        <aside class="span4">
-          <%= button_to "Lesson", '#', :method => :get,class: "btn btn-large btn-primary" %>     
-        </aside>
+        <% if admin_user? current_user %>
+          <aside class="span4">
+            <%= button_to "Words", admin_words_path, :method => :get, class: "btn btn-large btn-primary" %>   
+          </aside>
+          <aside class="span4">
+            <%= button_to "Lesson", "#", :method => :get,class: "btn btn-large btn-primary" %>     
+          </aside>
+        <% else %>
+          <aside class="span4">
+            <%= button_to "Words", words_path, :method => :get, class: "btn btn-large btn-primary" %>  
+          </aside>
+          <aside class="span4">
+            <%= button_to "Lesson", "#", :method => :get,class: "btn btn-large btn-primary" %>     
+          </aside>
+        <% end %>
       </div>
       <section>
         <h3>Activities</h3>

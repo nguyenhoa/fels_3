@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user
+  before_filter :correct_user
   before_action :signed_in_user,
                 only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
