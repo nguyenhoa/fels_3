@@ -1,2 +1,23 @@
-<h1>Lessons#new</h1>
-<p>Find me in app/views/lessons/new.html.erb</p>
+<% provide(:title, @lesson.id) %>
+<h7>User: <%= @lesson.user.name %></h7> <br> 
+<h7>Category: <%= @lesson.category.name %></h7>
+<h7 class="lessons">
+  <table style="text-align: center" border="1">
+    <thead>
+      <tr>
+        <th>Word name</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lesson.results.each do |result| %> 
+       <tr>              
+        <td><%= result.word.word %></td>
+        <td><%= result.word.meaning %></td>
+       <tr>
+      <% end %>
+    </tbody>
+   </table>
+<h7>
+
+<%= link_to "Relearn", new_lesson_path(lesson_id: @lesson.id) %>  

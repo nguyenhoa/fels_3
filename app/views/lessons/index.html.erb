@@ -1,13 +1,23 @@
-<% provide(:title, 'Lessons') %>
-<h1>Lessons</h1>
+<% provide(:title, 'All lessons') %>
+<h1>All lessons</h1>
 
 <%= will_paginate %>
 <ul class="lessons">
-<% @lessons.each do |lesson| %>
-    <li>  
-      <%= link_to lesson.id, lesson %>  
-      . <%= link_to lesson.category_id, lesson %>
-    </li>
-  <% end %>
+ <table style="text-align: center" border="1">
+    <thead>
+      <tr>
+        <th>Lesson</th>
+        <th>Category</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lessons.each do |lesson| %> 
+       <tr>              
+        <td><%= link_to lesson.id, lesson %></td>
+        <td><%= lesson.category_id %></td>
+       <tr>
+      <% end %>
+    </tbody>
+ </table>
 </ul>
 <%= will_paginate %>

@@ -15,7 +15,9 @@ Fels3::Application.routes.draw do
   end
   
   resources :categories, only: [:new, :show, :index]
-  resources :lessons, only: [:new, :show, :index]
+  resources :lessons
+  resources :results, only: [:new, :show, :index]
+  
   root  'static_pages#home'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
